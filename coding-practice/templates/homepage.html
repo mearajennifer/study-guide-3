@@ -2,8 +2,15 @@
 
 {% block content %}
 
-Welcome to the Site
-
-<p>#2) Create a form on this page that asks for the user's name.</p>
-
+<p>Welcome to the Site</p>
+<p>
+{% if not session.name %}
+<form action="/save-name" method="GET">
+    <label>Name: </label><input type="text" name="person">
+    <input type="submit">
+</form>
+{% else %}
+<a href="/form">Click here for a special message!</a>
+</p>
+{% endif %}
 {% endblock %}

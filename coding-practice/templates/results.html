@@ -2,11 +2,13 @@
 
 {% block content %}
 
+<p>Here is your {{ msg_type }} message:</p>
 
-<p>
-    #4) Finish the route called /results. Then, display appropriate results on 
-    this page.
-</p>
+<blockquote>
+    <p>{{ message }}</p>
+    <p>{{ author }}</p>
+</blockquote>
 
+<p><a href="/">Click to go back home!</a></p>
 
 {% endblock %}
