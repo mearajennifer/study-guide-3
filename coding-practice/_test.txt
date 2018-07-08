@@ -1,0 +1,10 @@
+Check starter code
+
+    >>> import server
+
+Test homepage route
+
+    >>> client = server.app.test_client()
+    >>> r = client.get("/")
+    >>> assert b"Welcome to the Site" in r.data
+
