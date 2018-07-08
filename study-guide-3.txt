@@ -1,0 +1,86 @@
+Week 3 Study Guide
+Critical Topics from This Week
+
+What are some examples of HTML elements?
+- <head>, <body>, <h2>, <p>, <form>, <img>
+
+What are HTML element attributes? What are some examples?
+- id="some-id", class="some-class", type="text", rel="stylesheet"
+
+What’s an HTML element id? What about a class?
+- id and class are optional attributes for elements. 
+- id is a unique identifier for an element as only one is allowed per page.
+- class can be used to group elements together.
+
+What is inline? What is block?
+- An inline element does not start on a new line and only takes up as much width as necessary.
+- A block level element always starts on a new line and takes up the full width available.
+
+What are some examples of inline elements? What are some examples of block elements?
+- Inline examples: <span>, <strong>, <a>, <button>, <img>
+- Block examples: <div>, <footer>, <ul>, <p>, <table>, <article>, <form>
+
+What is a <div>? How is it different than other block elements like <article> or <p>?
+- The generic block level element. You can use class or id attributes to describe it. Often used as a container in CSS for styling.
+
+What is a <span>? How is it different than other inline elements like <a> or <b>?
+- The generic inline element.
+
+What is the semantic web?
+- The semantic web is the vision on the web of linked data. HTML5 uses new semantic elements that tell stories about the data they are representing. It helps screenreaders, too.
+
+How do you make a form in HTML? What is the significance of the method attribute on a form? What is the significance of the action attribute on a form?
+- You make a form by using the opening and closing <form> tags. Add attribute 'action' to specify a URL where the data is passed. Defaults to GET method, or can be method attribute can be specified. The method handles how the data is passed. GET shows key/value pairs in the URL, or POST passes to the database (hidden).
+
+What are the various types of <input> tags? What is the significance of the name attribute on an input tag?
+- single line text box, radio buttons, checkboxes
+
+What is the Order of Precedence in CSS?
+- Most specific selector to least specific: id > class > tag
+
+When you type a URL into a web broswer, what happens? Be able to explain this in your own words, hitting each main concept from the How the Web Works lecture.
+- From your IP address (your unique address on the internet), the URL is broken down by your browser into the Protocol (https), Hostname (ubermelon.com), Port (where you talk to the server, for https it is 443), and Resource (melons/watermelon.html). The Hostname is further broken down by the DNS (domain name service) to it's server's IP address (something like 12.345.67.890). Your web browser makes a request to that webpage's server. Then, the server responds with the exact HTML for that page. Often, in order to do that, the server has to also interact with the database to get you what you've requested. In a request, your browser sends the method (GET), HTTP protocol version, headers (with Hostname, date, language, cookies, etc.). In a response, your browser receives, HTTP protocol version, response code (200, 404, etc.), headers (content type, date/time, cookies, caching info, etc.).
+
+What is the request object in Flask? What can you use it for?
+- from flask import request
+- You make a Flask object (app) and make a "view" function in your .py file.
+- @app.route('/hello')
+  def say_hello():
+  return "Hello"
+- This creates a function that returns web responses. The response is a string of HTML.
+
+In Flask, how do you access form values for a POST request? How about for a GET request?
+- GET: save to variable from request.args.get('key name')
+- POST: save to variable from request.form.get('key name')
+
+What is a cookie? What is a session? How are the two different?
+- Cookies are a way to save small bits of info in the browser. They are a name/string-value pair saved by your browser. The server tells the browser to store them, and the browser sends the cookies to the server with each request.
+- Sessions are stored as a cookie in the browser. They preserve type, and are automatically encrypted. You can treat sessions as a dictionary in your code.
+
+What is jinja? What does the function render_template do?
+- Jinja is a template system for Python using Flask.
+- render_template finds the html file in the templates folder and automatically displays it.
+
+Jinja syntax to know:
+    - For-loops: {% for x in xes %} {% endfor %}
+    - If-statements: {% if x in xes %} {% else if y in xes %} {% endif %}
+    - Showing text with jinja: {{ variable }}
+    - Setting HTML attributes using Jinja: {{ variable.attribute }} or {{ variable['attribute'] }}
+    - Template inheritance (using a base.html to create consistency): {% extends 'base.html' %}
+
+What is a web-based API?
+- APIs let you integrate your application with another one, and request or submit data to the other application.
+
+What is an API endpoint?
+- The API endpoints are routes appended to the end of the base URL.
+
+What are the core tenets of REST in the context of APIs?
+- Representational State Transfer API - Standard structure, uniform and meaningful URLs, browser and server independence, HTTP protocol, individual request independence
+
+What are doctests? How do you create and run them?
+- Test individual units by adding inside the docstring a call to the function (with any arguments necessary) and the expected output below it. 
+
+What is the difference between a unit test and an integration test?
+- A unit test only tests one unit of functionality (like an individual function), doesn't test framework or integration of components, and promotes modular code.
+- An integration test will test if compenents work together.
+
